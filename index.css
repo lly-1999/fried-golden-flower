@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ecf1f6;
+}
+
+.desk {
+    width: 1519px;
+    height: 696px;
+}
+
+.card_box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 150px;
+}
+
+.card_box img {
+    width: 100%;
+    height: 100%;
+}
+
+.gamer {
+    width: 430px;
+    height: 150px;
+    border: 1px solid red;
+}
+
+.gamer1 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.gamer2 {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.gamer3 {
+    position: absolute;
+    top: 0;
+    left: 510px;
+}
+
+.oprete {
+    float: right;
+    width: 70px;
+    height: 150px;
+    border: 1px solid green;
+}
+
+.oprete button {
+    width: 100%;
+    outline: none;
+}
+
+.b1 {
+    display: inline-block;
+    width: 100%;
+    height: 25px;
+    text-align: center;
+    line-height: 25px;
+    font-size: 13px;
+    font-weight: bold;
+    color: black;
+    border-top: 1px solid black;
+    background-color: white;
+    cursor: pointer;
+}
+
+.Prize_pool {
+    position: absolute;
+    top: 250px;
+    left: 700px;
+    width: 120px;
+    height: 80px;
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    line-height: 80px;
+    font-weight: 700;
+    background-color: #00ff44;
+    border-radius: 7px;
+    box-shadow: 0px 0.2px 3.6px rgba(0, 0, 0, 0.042), 0px 0.6px 10px rgba(0, 0, 0, 0.06), 0px 1.5px 24.1px rgba(0, 0, 0, 0.078), 0px 5px 80px rgba(0, 0, 0, 0.12);
+}
+
+
+/* .card_box img {
+    width: 100px;
+} */
