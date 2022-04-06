@@ -104,6 +104,12 @@ function judge(arr, arr2) {
                 else if (x < y) return 2
             }
         }
+    } else if (arr_reslut) {
+        return 1
+    } else if (arr1_reslut) {
+        return 2
+    } else {
+        return compare(get_vlaue(arr), get_vlaue(arr2))
     }
     // result = compare(arr_value, arr1_value)
 
@@ -205,14 +211,40 @@ function judge_Connection(arr) {
     else return false
 }
 //比较单张牌型大小
+
 function compare(arr, arr2) {
-    //获取两个用户手牌的最大值
-    let max = Math.max(arr[0], arr[1], arr[2]);
-    let max2 = Math.max(arr2[0], arr2[1], arr2[2]);
-    //判断用户谁的值最大
-    if (max > max2) {
-        return 1
+    let user1 = [];
+    let user2 = [];
+    user1 = [parseInt(arr[0] / 10), parseInt(arr[1] / 10), parseInt(arr[2] / 10)]
+    user2 = [parseInt(arr2[0] / 10), parseInt(arr2[1] / 10), parseInt(arr2[2] / 10)]
+    let a = user1.sort((a, b) => b - a)
+    let b = user2.sort((a, b) => b - a)
+    let z = (a[0] == b[0] && a[1] == b[1] && a[2] == b[2]) ? true : false;
+    if (z) {
+        return 0;
     } else {
-        return 2
+        for (let i = 0; i < 3; i++) {
+            if (a[i] == b[i]) {
+                continue;
+            } else if (a[i] > b[i]) {
+                return 1;
+            } else if (a[i] < b[i]) {
+                return 2;
+            }
+        }
     }
+}
+
+
+
+
+document.querySelector('.desk').style.height = document.body.clientHeight + 'px'
+document.querySelector('.desk').style.width = document.body.clientWidth + 'px'
+
+let a = document.querySelector('.socket')
+let b = document.querySelector('.desk')
+b.style.display = 'none'
+window.onload = function() {
+    b.style.display = 'block'
+    a.style.display = 'none'
 }

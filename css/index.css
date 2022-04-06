@@ -9,8 +9,8 @@ body {
 }
 
 .desk {
-    width: 1519px;
-    height: 696px;
+    width: 0px;
+    height: 0px;
 }
 
 .card_box {
@@ -29,7 +29,6 @@ body {
 .gamer {
     width: 430px;
     height: 150px;
-    border: 1px solid red;
 }
 
 .gamer1 {
@@ -45,6 +44,7 @@ body {
 }
 
 .gamer3 {
+    display: none;
     position: absolute;
     top: 0;
     left: 510px;
@@ -76,23 +76,32 @@ body {
     cursor: pointer;
 }
 
-.Prize_pool {
+.desk_screen {
+    display: block;
     position: absolute;
-    top: 250px;
-    left: 700px;
-    width: 120px;
-    height: 80px;
-    color: white;
-    font-size: 30px;
+    margin-left: 50%;
+    margin-top: 25%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 70px;
     text-align: center;
-    line-height: 80px;
+    background-color: #00ff00;
+    color: white;
+    font-size: 40px;
     font-weight: 700;
-    background-color: #00ff44;
-    border-radius: 7px;
-    box-shadow: 0px 0.2px 3.6px rgba(0, 0, 0, 0.042), 0px 0.6px 10px rgba(0, 0, 0, 0.06), 0px 1.5px 24.1px rgba(0, 0, 0, 0.078), 0px 5px 80px rgba(0, 0, 0, 0.12);
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 0.2px 1.2px rgba(0, 0, 0, 0.015), 0px 0.3px 2.7px rgba(0, 0, 0, 0.022), 0px 0.6px 4.6px rgba(0, 0, 0, 0.027), 0px 0.9px 6.9px rgba(0, 0, 0, 0.031), 0px 1.3px 10px rgba(0, 0, 0, 0.035), 0px 1.8px 14.2px rgba(0, 0, 0, 0.039), 0px 2.5px 20.1px rgba(0, 0, 0, 0.043), 0px 3.7px 29.2px rgba(0, 0, 0, 0.048), 0px 5.6px 45px rgba(0, 0, 0, 0.055), 0px 10px 80px rgba(0, 0, 0, 0.07);
 }
 
-
-/* .card_box img {
-    width: 100px;
-} */
+.oprate_screen {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid black;
+    height: 25px;
+    text-align: center;
+    font-weight: 700;
+    outline: none;
+    cursor: pointer;
+    margin-bottom: 3px;
+}
