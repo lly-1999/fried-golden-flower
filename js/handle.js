@@ -21,7 +21,7 @@ let screen2 = document.querySelector('#oprate_screen2') //玩家2余额
 let inp = document.querySelector('#inp1') //玩家1输入框
 let inp2 = document.querySelector('#inp2') //玩家2输入框
 let Prize_pool_span = document.querySelector('.desk_screen') //奖池
-let round = 0; //轮数
+let round = 5; //轮数
 //随机顺序,true为轮到玩家1了
 let sequence = Math.floor(Math.random() * 10) > 5 ? true : false
 screen.value = gamer1Info.acont
@@ -155,7 +155,7 @@ function putMoney(mark) {
 }
 //同上一个guess方法,只不过分开写了第二个玩家的,应该可以写在一起
 function guess2(mark) {
-    if (!inp2.value || !inp2.value == 0) {
+    if (!inp2.value || inp2.value == 0) {
         return
     }
     if (mark == sequence) {
@@ -313,17 +313,26 @@ function settlement(id) {
         localStorage.setItem('gamer1_acont', temp2)
     }
 }
-let open1 = document.querySelector('#open1') //开牌按钮
+let open1 = document.querySelector('.open1') //开牌按钮
 open1.addEventListener('click', function() { //开牌按钮事件监听
+    open()
+})
+let open2 = document.querySelector('.open2') //开牌按钮
+open2.addEventListener('click', function() { //开牌按钮事件监听
+    open()
+})
+
+function open() {
     //轮数不够5的话不让开
     if (round < 5) {
         alert('轮数不够两轮,无法开牌!')
     } else {
         //判断到底谁赢了,generate_card里面存了4个数据,见index.js
+        get_card(2)
         if (judge(generate_card[0], generate_card[1]) == 1) {
             settlement(1)
         } else if (judge(generate_card[0], generate_card[1]) == 2) {
             settlement(2)
         } else alert('结算异常!')
     }
-})
+}

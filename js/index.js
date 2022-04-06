@@ -70,7 +70,7 @@ function random1() {
     return temp
 }
 //初始化产生的牌的相关数据数组,这个数组有大用!
-let generate_card = []
+let generate_card = null
     //获取该数组的方法
 function get_card(n) {
     //防止重复生成该数组,每次游戏只生成一次
