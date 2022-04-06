@@ -155,6 +155,9 @@ function putMoney(mark) {
 }
 //同上一个guess方法,只不过分开写了第二个玩家的,应该可以写在一起
 function guess2(mark) {
+    if (!inp2.value || !inp2.value == 0) {
+        return
+    }
     if (mark == sequence) {
         if (gamer2Info.mode == 0) {
             if (gamer1Info.mode == 0) {
