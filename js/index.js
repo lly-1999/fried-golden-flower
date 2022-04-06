@@ -69,35 +69,47 @@ function random1() {
     card_group.splice(index, 1)
     return temp
 }
-let generate_card = null
-
+//初始化产生的牌的相关数据数组,这个数组有大用!
+let generate_card = []
+    //获取该数组的方法
 function get_card(n) {
+    //防止重复生成该数组,每次游戏只生成一次
     if (!generate_card) {
         let cards1 = []
         let cards2 = []
         let cards1_value = []
         let cards2_value = []
+            //生成两幅牌,有点多余..
         if (n == 2) {
+            //随机出来一副牌
             cards1 = [random1(), random1(), random1()]
+                //随机出来第二幅牌
             cards2 = [random1(), random1(), random1()]
+                //获取这副牌的牌值
             cards1_value = get_vlaue(cards1)
             cards2_value = get_vlaue(cards2)
         }
+        //生成好了返回出去 : 第一幅牌花色,第二幅牌花色,第一幅牌值,第二幅牌值
         generate_card = [cards1, cards2, cards1_value, cards2_value]
     }
 
     return generate_card
 }
-
+//比较两副牌的大小总方法
 function judge(arr, arr2) {
+    //现根据花色获取牌的值
     let arr_value = get_vlaue(arr)
     let arr1_value = get_vlaue(arr2)
     let result = ''
-    let arr_reslut = null;
+    let arr_reslut = null; //等会儿要存入第一幅牌的牌型结果集
     let arr1_reslut = null;
+    //获取第一幅牌的牌型,如果是false的话表示是一个单张牌型
     arr_reslut = judge_Connection(arr_value) ? judge_Connection(arr_value) : judge_Pair(arr_value)
     arr1_reslut = judge_Connection(arr1_value) ? judge_Connection(arr1_value) : judge_Pair(arr1_value)
-    if (arr_reslut && arr1_reslut) {
+
+    //看看两幅牌是不是比较高级的牌型,都不是的话直接取比较单张牌型方法里面去比较大小
+    if (arr_reslut && arr1_reslut) { //如果两个牌都是高级牌型的话,那就是true
+        //结果集里面存入的是[1,2,3],挨个比较,具体每个数的含义看各个牌型检查里的返回值
         for (let x = 0; x < arr_reslut.length; x++) {
             for (let y = 0; y < arr1_reslut.length; y++) {
                 if (x > y) return 1
@@ -109,6 +121,7 @@ function judge(arr, arr2) {
     } else if (arr1_reslut) {
         return 2
     } else {
+        //不是高级牌型,去比较单张大小
         return compare(get_vlaue(arr), get_vlaue(arr2))
     }
     // result = compare(arr_value, arr1_value)
@@ -240,7 +253,7 @@ function compare(arr, arr2) {
 
 document.querySelector('.desk').style.height = document.body.clientHeight + 'px'
 document.querySelector('.desk').style.width = document.body.clientWidth + 'px'
-
+    //加载样式
 let a = document.querySelector('.socket')
 let b = document.querySelector('.desk')
 b.style.display = 'none'
